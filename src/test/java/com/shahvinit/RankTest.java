@@ -35,4 +35,10 @@ public class RankTest {
         assertThat(Rank.from("A").rankValue())
                 .isEqualTo(1);
     }
+
+    @Test
+    public void testCardWithNumber8HasNumericalValue8() {
+        assertThat(Rank.from("8").rankValue())
+                .isEqualTo(8);
+    }
 }
