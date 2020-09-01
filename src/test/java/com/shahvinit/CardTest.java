@@ -34,4 +34,10 @@ public class CardTest {
         assertThat(twoOfDiamond.isGreaterThan(threeOfSpade))
                 .isFalse();
     }
+
+    @Test
+    public void testDisplayCard2OfDiamond() {
+        Card twoOfDiamond = new Card(Suit.DIAMONDS, new Rank("2"));
+        System.out.println(twoOfDiamond.display());
+    }
 }

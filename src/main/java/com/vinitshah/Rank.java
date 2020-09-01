@@ -15,6 +15,17 @@ public class Rank {
         return new Rank(rank);
     }
 
+    public static Rank from(int rank) {
+        if(rank == 1) {
+            return new Rank("A");
+        } else if(rank <= 10) {
+            return new Rank(String.valueOf(rank));
+        } else {
+            String rankValue = (rank == 11) ? "J" : (rank == 12) ? "Q" : (rank == 13) ? "K" : null;
+            return new Rank(rankValue);
+        }
+    }
+
     public static List<Rank> allRanks() {
         return RANKS.stream()
                 .map(Rank::new)

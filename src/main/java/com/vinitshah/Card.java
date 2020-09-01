@@ -18,11 +18,11 @@ public class Card {
     public String display() {
         String[] lines = new String[7];
         lines[0] = "┌─────────┐";
-        lines[1] = String.format("│%s%s       │", rank, rank.equals("10") ? "" : " ");
+        lines[1] = String.format("│%s%s       │", rank.display(), rank.equals("10") ? "" : " ");
         lines[2] = "│         │";
         lines[3] = String.format("│    %s    │", suit.symbol());
         lines[4] = "│         │";
-        lines[5] = String.format("│       %s%s│", rank.equals("10") ? "" : " ", rank);
+        lines[5] = String.format("│       %s%s│", rank.equals("10") ? "" : " ", rank.display());
         lines[6] = "└─────────┘";
 
         return ansi()
@@ -34,11 +34,7 @@ public class Card {
 
     public boolean isGreaterThan(Card card) {
         if(this.suit == card.suit) {
-            if(this.rank.rankValue() > card.rank.rankValue()) {
-                return true;
-            }
-
-            return false;
+            return this.rank.rankValue() > card.rank.rankValue();
         }
 
         return false;
